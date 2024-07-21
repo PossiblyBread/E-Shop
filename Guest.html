@@ -20,14 +20,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40%;
+            width: 30%;
             height: 13.6vh;
             margin-left: -4rem ;
             background-color: #555;
-            clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+            clip-path: polygon(95% 0%, 100% 25%, 85% 100%, 0% 100%, 0% 0%);
         }
-        .shop-name-logo h1 {
-            color: white;
+        .shop-name-logo h2 {
+            color: rgb(255, 255, 255);
             margin: 0;
         }
         /* right side panel */
@@ -82,7 +82,7 @@
             text-align: center;
             flex: 1;
             overflow-y: auto;
-            height: 100vh;
+            height: 100%;
         }
         .left-nav h2 {
             margin: 0;
@@ -125,18 +125,19 @@
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 100%;
+            
         }
-        .slide {
+        .slide { /* reminder to add some effect here*/
             min-width: 100%;
             box-sizing: border-box;
-            background-color: #dedfad;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
             font-weight: bold;
             opacity: 1;
             transition: opacity 0.5s ease-in-out;
+            /* a supoosed to be some kind of disk of some sort 
+            clip-path: ellipse(40% 7% at 50% 50%) */
         }
         .Product-Carousel img {
             max-width: 100%;
@@ -294,9 +295,8 @@
 </head>
 <body>
     <div class="shop-name-logo">
-        <h1>Shop Name and Logo</h1>
+        <h2>Shop Name and Logo</h2>
     </div>
-    
     <button class="menu-button" onclick="openNav()">☰ Menu</button>
     
     <div id="right-side-panel" class="side-panel">
@@ -306,7 +306,7 @@
         <a href="#">Find us</a>
         <a href="#">Profile</a>
         <a href="#">Feedback</a>
-        <a href="#">Settings</a>
+        <a href="Settings.html">Settings</a>
         <a href="#" id="login-button">Log In</a>
     </div>
 
