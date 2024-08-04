@@ -34,7 +34,7 @@
                     <!-- sends you to shop -->
                     <button type="Submit" class="btn btn-success" name="Submit">Register</button> 
                     <!-- sends you to home -->
-                    <a href="Home.php?" class="cancel-button">Cancel</a>
+                    <a href="Guest.html" class="cancel-button">Cancel</a>
                 </div>
             </form>
         </div>
