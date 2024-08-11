@@ -14,4 +14,6 @@ Week #5: (August 4, 2024)
   -Added user profile page
   -Added details button on the main page with a dropdown mechanic
   -Added a simple design for the registration form
-Week #6:
+  
+Week #6: (August 11, 2024)
+  -Started fixing design of the website, cleaning and removing excess codes
