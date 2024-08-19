@@ -10,10 +10,13 @@ Week #3: (july 21, 2024) 0.1.2
   
 Week #4: [Device cleanup due to lag and crashes]
 
-Week #5: (August 4, 2024)
+Week #5: (August 4, 2024) 0.1.3
   -Added user profile page
   -Added details button on the main page with a dropdown mechanic
   -Added a simple design for the registration form
   
-Week #6: (August 11, 2024)
+Week #6: (August 11, 2024) 0.1.4
   -Started fixing design of the website, cleaning and removing excess codes
+
+Week #7 (August 19, 2024) [monday]
+  -Started working on its other half for now, will come back to this in the near future
