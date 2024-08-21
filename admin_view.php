@@ -1,8 +1,9 @@
 <?php
-    include "db_conn.php";
+include "db_conn.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -188,7 +189,7 @@
             width: 100%;
         }
 
-        .slide { 
+        .slide {
             min-width: 100%;
             box-sizing: border-box;
             display: flex;
@@ -205,7 +206,8 @@
             border-radius: 50px;
         }
 
-        .prev, .next {
+        .prev,
+        .next {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -250,7 +252,8 @@
                 padding: 0.5rem;
             }
 
-            .prev, .next {
+            .prev,
+            .next {
                 padding: 0.5rem;
             }
         }
@@ -265,10 +268,12 @@
                 gap: 0.5rem;
             }
 
-            .prev, .next {
+            .prev,
+            .next {
                 padding: 0.3rem;
             }
         }
+
         /* description */
         .Product-Description {
             height: 40%;
@@ -280,6 +285,7 @@
             overflow: hidden;
             transition: background-color 0.3s, transform 0.3s;
         }
+
         .Details-Button {
             align-items: center;
             padding: 0.8rem;
@@ -291,6 +297,7 @@
             position: absolute;
             border-radius: 10px;
         }
+
         .product-description h2 {
             margin: 0 0 1rem;
         }
@@ -362,34 +369,46 @@
 
         .details-section h4 {
             margin-bottom: 0.5rem;
-            color: #4caf50; /* green for headers */
+            color: #4caf50;
+            /* green for headers */
         }
 
         .details-section strong {
-            color: #333; /* Darker color for the strong text */
+            color: #333;
+            /* Darker color for the strong text */
         }
 
         /* The Modal (background) */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 4; /* Sit on top */
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 4;
+            /* Sit on top */
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
         }
 
         /* Modal Content/Box */
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto; /* 15% from the top and centered */
+            margin: 15% auto;
+            /* 15% from the top and centered */
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
+            width: 80%;
+            /* Could be more or less, depending on screen size */
             max-width: 400px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -456,9 +475,9 @@
         .register-link:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
+
 <body>
     <!-- content -->
     <div class="shop-name-logo">
@@ -466,41 +485,18 @@
     </div>
     <div class="Name-tag"> Guest </div>
     <button class="menu-button" onclick="openNav()">☰ Menu</button>
-    
+
     <div id="right-side-panel" class="side-panel">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
         <a href="#">Browse</a>
         <a href="#">Parts and Services</a>
         <a href="#">Find us</a>
-        <a href="Profile.html">Profile</a>
+        <a href="Profile.php">Profile</a>
         <a href="#">Feedback</a>
-        <a href="Settings.html">Settings</a>
-        <a href="#" id="login-button">Log In</a>
+        <a href="Settings.php">Settings</a>
+        <a href="Admin.php" id="login-button">Back</a>
     </div>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content login-form">
-        <span class="close">&times;</span>
-        <h2>Login Form</h2>
-        <form action="Login.php" method="post">
-            <div>
-                <label for="i_email">Email:</label>
-                <input type="text" name="i_email" id="i_email" placeholder="Email" required>
-            </div>
-            <div>
-                <label for="i_password">Password:</label>
-                <input type="password" name="i_password" id="i_password" placeholder="Password" required>
-            </div>
-            <button type="submit" name="Login">Login</button>
-            <a href="Register.html" class="register-link">Register</a>
-        </form>
-      </div>
-
-    </div>
-    
     <div class="container">
         <div class="left-nav">
             <h2>Home</h2>
@@ -508,7 +504,7 @@
             <h2>New</h2>
             <h2>All Products</h2>
         </div>
-        <div class="filler"><img src="../Images/teto.png"></div>
+        <div class="filler"><img src="Images/cat1.jpg"></div>
         <div class="Product-Showcase">
             <div class="Product-Carousel">
                 <div class="slides">
@@ -521,8 +517,6 @@
                 <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
                 <button class="next" onclick="moveSlide(1)">&#10095;</button>
             </div>
-
-            
             <div class="Product-Description">
                 <h2>Item Details</h2>
                 <div class="basic-info">
@@ -532,19 +526,19 @@
                     <button class="Details-Button" id="details-button">More Details</button>
                 </div>
             </div>
-            
+
             <div class="popup" id="details-popup">
                 <div class="popup-content">
                     <span class="close" id="close-popup">&times;</span>
                     <h3 class="popup-title">More Details</h3>
-                    
+
                     <div class="details-section">
                         <h4>Dimensions and Weight</h4>
                         <p><strong>Frame Size:</strong> Suitable rider height or frame measurements (e.g., small, medium, large).</p>
                         <p><strong>Wheel Size:</strong> Diameter of the wheels (e.g., 26", 27.5", 29").</p>
                         <p><strong>Weight:</strong> Total weight of the e-bike including battery.</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Motor and Performance</h4>
                         <p><strong>Motor Type:</strong> Hub motor, mid-drive motor.</p>
@@ -553,7 +547,7 @@
                         <p><strong>Pedal Assist Levels:</strong> Number of assistance levels (e.g., 3, 5).</p>
                         <p><strong>Throttle:</strong> Whether it has a throttle and its type (e.g., thumb, twist).</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Battery</h4>
                         <p><strong>Battery Type:</strong> Lithium-ion, etc.</p>
@@ -561,7 +555,7 @@
                         <p><strong>Range:</strong> Estimated range per charge (e.g., 30-50 miles).</p>
                         <p><strong>Charge Time:</strong> Time required to fully charge the battery.</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Drivetrain and Components</h4>
                         <p><strong>Gears:</strong> Number and type of gears (e.g., Shimano 7-speed).</p>
@@ -569,21 +563,21 @@
                         <p><strong>Suspension:</strong> Front suspension, full suspension, or rigid.</p>
                         <p><strong>Tires:</strong> Type and size of tires (e.g., 27.5"x2.4" mountain tires).</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Frame and Construction</h4>
                         <p><strong>Frame Material:</strong> Aluminum, carbon fiber, steel, etc.</p>
                         <p><strong>Fork:</strong> Type and material of the fork (e.g., aluminum suspension fork).</p>
                         <p><strong>Handlebars:</strong> Type (e.g., flat, drop, riser) and material.</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Electronics and Controls</h4>
                         <p><strong>Display:</strong> Type and features of the display (e.g., LCD, LED).</p>
                         <p><strong>Lighting:</strong> Integrated front and rear lights, reflectors.</p>
                         <p><strong>Connectivity:</strong> Bluetooth, app compatibility for tracking and adjustments.</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Safety and Convenience Features</h4>
                         <p><strong>Fenders:</strong> Front and rear fenders for protection.</p>
@@ -591,20 +585,20 @@
                         <p><strong>Kickstand:</strong> Type and placement.</p>
                         <p><strong>Lock:</strong> Built-in lock or lock compatibility.</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Accessories and Additional Features</h4>
                         <p><strong>Accessories:</strong> Bells, mirrors, bottle holders, etc.</p>
                         <p><strong>Warranty:</strong> Information on the e-bike’s warranty.</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Technical Specifications</h4>
                         <p><strong>Torque:</strong> Motor torque in Newton-meters (Nm).</p>
                         <p><strong>Max Rider Weight:</strong> Maximum load capacity.</p>
                         <p><strong>Water Resistance:</strong> IP rating for water and dust resistance.</p>
                     </div>
-            
+
                     <div class="details-section">
                         <h4>Price</h4>
                         <p><strong>Base Price:</strong> Starting price of the e-bike.</p>
@@ -666,12 +660,12 @@
                 popup.style.transform = 'translateY(0)';
             }, 10); // slight delay for the slide effect
         });
-        
+
         document.getElementById('close-popup').addEventListener('click', function() {
             var popup = document.getElementById('details-popup');
             popup.style.transform = 'translateY(-100%)';
             setTimeout(() => {
-            popup.style.display = 'none';
+                popup.style.display = 'none';
             }, 300); // match the transition duration
         });
         // Get the modal
@@ -698,7 +692,7 @@
                 modal.style.display = "none";
             }
         }
-        
     </script>
 </body>
+
 </html>

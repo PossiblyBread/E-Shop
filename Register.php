@@ -34,10 +34,89 @@
                     <!-- sends you to shop -->
                     <button type="Submit" class="btn btn-success" name="Submit">Register</button> 
                     <!-- sends you to home -->
-                    <a href="Guest.html" class="cancel-button">Cancel</a>
+                    <a href="Admin.php" class="cancel-button">Cancel</a>
                 </div>
             </form>
         </div>
 
     </body>
 </html>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .registration-form {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .registration-form h3 {
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .registration-form div {
+            margin-bottom: 1rem;
+        }
+
+        .registration-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .cancel-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            color: #fff;
+            background-color: #dc3545;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+
+        .cancel-button:hover {
+            background-color: #c82333;
+        }
+    </style>

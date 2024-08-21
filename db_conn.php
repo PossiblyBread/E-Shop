@@ -11,54 +11,112 @@ if (!$conn) {
     die("Connection Failed " . mysqli_connect_error()); 
 }
 
-//for registering a new user
+    //for registering a new user
     if (isset($_POST['Submit'])) {
         $last_name = $_POST['last_name'];
         $first_name = $_POST['first_name'];
         $email = $_POST['email'];
         $phone_num = $_POST['phone_num'];
         $a_password = $_POST['a_password']; //a_password for account password
+        $h_password = password_hash($a_password, PASSWORD_DEFAULT);
+        $role = $_POST['role'] = "user";
 
-        $sql = "INSERT INTO `web_db` (`id`, `last_name`, `first_name`, `email`, `phone_num`, `a_password`) 
-                VALUES (NULL,'$last_name','$first_name','$email','$phone_num','$a_password')";
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            die("Invalid email format.");
+        }
+
+        $sql = "INSERT INTO `accounts` (`id`, `last_name`, `first_name`, `email`, `phone_num`, `h_password`, `role`) 
+                VALUES (NULL,'$last_name','$first_name','$email','$phone_num','$h_password','$role')";
 
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
-            header("Location:Shop.php? msg=User Created Successfully!");
+            header("Location:Admin.php? msg=User Created Successfully!");
         } else {
             echo "Failed: " . mysqli_error($conn);
         }   
     }
 
-    if (isset($_POST['Update-Image'])) {
-        $name = $_POST['name'];
-        $totalFiles = count($_FILES['fileImg']['name']);
-        $filesArray = array();
-
-        for($i = 0; $i < $totalFiles; $i++){
-            $imageName = $_FILES["fileImg"]["name"][$i];
-            $tmpName = $_FILES["fileImg"]["tmp_name"][$i];
-
-            $imageExtension = explode('.', $imageName);
-            $imageExtension = strtolower(end($imageExtension));
-
-            $newImageName = uniqid() . '.' . $imageExtension;
-
-            move_uploaded_file($tmpName, 'uploads/' . $newImageName);
-            $filesArray[] = $newImageName;
-        }
-
-        $filesArray = json_encode($filesArray);
-        $query = "INSERT INTO images_db VALUES('', '$name', '$filesArray')";
-        mysqli_query($conn, $query);
-        echo
-        "<script>
-            alert('Successfully Added');
-            document.location.href = 'index.php';
-        </script>";
-    }
     
+    if (isset($_POST['Update-Product'])) {
+        $p_brand = $_POST['reg_id'];
+        $p_model = $_POST['p_image'];
+        $p_brand = $_POST['p_brand'];
+        $p_model = $_POST['p_model'];
+        $p_year = $_POST['p_year'];
+        $p_type = $_POST['p_type'];
+        $p_frame_size = $_POST['p_frame_size'];
+        $p_wheel_size = $_POST['p_wheel_size'];
+        $p_weight = $_POST['p_weight'];
+        $p_motor_type = $_POST['p_motor_type'];
+        $p_motor_power = $_POST['p_motor_power'];
+        $p_top_speed = $_POST['p_top_speed'];
+        $p_pedal_assist_levels = $_POST['p_pedal_assist_levels'];
+        $p_throttle = $_POST['p_throttle'];
+        $p_battery_type = $_POST['p_battery_type'];
+        $p_battery_capacity = $_POST['p_battery_capacity'];
+        $p_range = $_POST['p_range'];
+        $p_charge_time = $_POST['p_charge_time'];
+        $p_gears = $_POST['p_gears'];
+        $p_brakes = $_POST['p_brakes'];
+        $p_suspension = $_POST['p_suspension'];
+        $p_tires = $_POST['p_tires'];
+        $p_frame_material = $_POST['p_frame_material'];
+        $p_fork = $_POST['p_fork'];
+        $p_handlebars = $_POST['p_handlebars'];
+        $p_display = $_POST['p_display'];
+        $p_lighting = $_POST['p_lighting'];
+        $p_connectivity = $_POST['p_connectivity'];
+        $p_fenders = $_POST['p_fenders'];
+        $p_rack = $_POST['p_rack'];
+        $p_kickstand = $_POST['p_kickstand'];
+        $p_lock = $_POST['p_lock'];
+        $p_accessories = $_POST['p_accessories'];
+        $p_warranty = $_POST['p_warranty'];
+        $p_torque = $_POST['p_torque'];
+        $p_max_rider_weight = $_POST['p_max_rider_weight'];
+        $p_water_resistance = $_POST['p_water_resistance'];
+        $p_base_price = $_POST['p_base-price'];
+        $p_optional_features = $_POST['p_optional_features'];
+
+        $sql = "SELECT * FROM product_tb WHERE reg_id='$reg_id'";
+                $result = mysqli_query($conn, $sql);
+                $num = 0;
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $Num++;
+                }
+
+        if (isset($_FILES['p_image']['p_model'])) {
+            $file_name = $_FILES['p_image']['p_model'];
+            $file_tmp = $_FILES['p_image']['tmp_name'];
+        
+            move_uploaded_file($file_tmp, "./uploads/" . $file_name);
+    
+            // Insert data into database
+            $sql = "INSERT INTO `product_tb` (
+                        `id`, `reg_id`, `p_image`, `p_brand`, `p_model`, `p_year`, `p_type`, `p_frame_size`, `p_wheel_size`, 
+                        `p_weight`, `p_motor_type`, `p_motor_power`, `p_top_speed`, `p_pedal_assist_levels`, 
+                        `p_throttle`, `p_battery_type`, `p_battery_capacity`, `p_range`, `p_charge_time`, 
+                        `p_gears`, `p_brakes`, `p_suspension`, `p_tires`, `p_frame_material`, `p_fork`, 
+                        `p_handlebars`, `p_display`, `p_lighting`, `p_connectivity`, `p_fenders`, `p_rack`, 
+                        `p_kickstand`, `p_lock`, `p_accessories`, `p_warranty`, `p_torque`, 
+                        `p_max_rider_weight`, `p_water_resistance`, `p_base_price`, `p_optional_features`) 
+                        
+                    VALUES (NULL, '$reg_id', '$p_image', '$p_brand', '$p_model', '$p_year', '$p_type', '$p_frame_size', '$p_wheel_size', 
+                        '$p_weight', '$p_motor_type', '$p_motor_power', '$p_top_speed', '$p_pedal_assist_levels', 
+                        '$p_throttle', '$p_battery_type', '$p_battery_capacity', '$p_range', '$p_charge_time', 
+                        '$p_gears', '$p_brakes', '$p_suspension', '$p_tires', '$p_frame_material', '$p_fork', 
+                        '$p_handlebars', '$p_display', '$p_lighting', '$p_connectivity', '$p_fenders', '$p_rack', 
+                        '$p_kickstand', '$p_lock', '$p_accessories', '$p_warranty', '$p_torque', 
+                       '$p_max_rider_weight', '$p_water_resistance', '$p_base_price', '$p_optional_features')";
+            $result = mysqli_query($conn, $sql);
+        }
+        if ($result) {
+            header("Location:Admin.php? msg= E-Bike Description Updated!");
+        } else {
+            echo "Failed: " . mysqli_error($conn);
+        }
+    }    
 
     date_default_timezone_set('Asia/Singapore');
     function calculateTimeElapsed($upload_date_time) {
