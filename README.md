@@ -20,3 +20,5 @@ Week #6: (August 11, 2024) 0.1.4
 
 Week #7 (August 19, 2024) [monday]
   -Started working on its other half for now, will come back to this in the near future
+        (August 21, 2024) [wednesday] 0.1.5
+  -added more files with some stuffs in it. might be a big update or something.
