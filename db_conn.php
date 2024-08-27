@@ -31,16 +31,44 @@ if (!$conn) {
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
-            header("Location:Admin.php? msg=User Created Successfully!");
+            header("Location:Dashboard.php? msg=User Created Successfully!");
+        } else {
+            echo "Failed: " . mysqli_error($conn);
+        }   
+    }
+    if (isset($_POST['pay-update'])) {
+        $user_id = $_POST['user_id'];
+        $user_name = $_POST['user_name'];
+        $product_id = $_POST['product_id'];
+        $product_name = $_POST['product_name'];
+        $product_price = $_POST['product_price'];
+        $payment_type = $_POST['payment_type'];
+        $due_date = $_POST['due_date'];
+        $due_to_be_paid = $_POST['due_to_be_paid'];
+        $due_paid = $_POST['due_paid'];
+        $due_missed = $_POST['due_missed'];
+        $due_paid_date = $_POST['due_paid_date'];
+        $dues_remaining = $_POST['dues_remaining'];
+        $due_status = $_POST['due_status'];
+
+        $sql = "INSERT INTO `ledger_tb` (`id`, `user_id`, `user_name`, `product_id`, `product_name`, 
+                        `product_price`, `payment_type`, `due_date`, `due_to_be_paid`, `due_paid`, 
+                        `due_missed`, `due_paid_date`, `dues_remaining`, `due_status`) 
+                VALUES (NULL, '$user_id', '$user_name', '$product_id', '$product_name', 
+                        '$product_price', '$payment_type', '$due_date', '$due_to_be_paid', 
+                        '$due_paid', '$due_missed', '$due_paid_date', '$dues_remaining', '$due_status')";
+
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            header("Location:Dashboard.php? msg=User Created Successfully!");
         } else {
             echo "Failed: " . mysqli_error($conn);
         }   
     }
 
-    
-    if (isset($_POST['Update-Product'])) {
-        $p_brand = $_POST['reg_id'];
-        $p_model = $_POST['p_image'];
+    if (isset($_FILES['images'])) {
+        // File upload variables
         $p_brand = $_POST['p_brand'];
         $p_model = $_POST['p_model'];
         $p_year = $_POST['p_year'];
@@ -78,31 +106,23 @@ if (!$conn) {
         $p_water_resistance = $_POST['p_water_resistance'];
         $p_base_price = $_POST['p_base-price'];
         $p_optional_features = $_POST['p_optional_features'];
-
-        $sql = "SELECT * FROM product_tb WHERE reg_id='$reg_id'";
-                $result = mysqli_query($conn, $sql);
-                $num = 0;
-                while ($row = mysqli_fetch_assoc($result)) {
-                  $Num++;
-                }
-
-        if (isset($_FILES['p_image']['p_model'])) {
-            $file_name = $_FILES['p_image']['p_model'];
-            $file_tmp = $_FILES['p_image']['tmp_name'];
         
-            move_uploaded_file($file_tmp, "./uploads/" . $file_name);
-    
-            // Insert data into database
-            $sql = "INSERT INTO `product_tb` (
-                        `id`, `reg_id`, `p_image`, `p_brand`, `p_model`, `p_year`, `p_type`, `p_frame_size`, `p_wheel_size`, 
-                        `p_weight`, `p_motor_type`, `p_motor_power`, `p_top_speed`, `p_pedal_assist_levels`, 
-                        `p_throttle`, `p_battery_type`, `p_battery_capacity`, `p_range`, `p_charge_time`, 
-                        `p_gears`, `p_brakes`, `p_suspension`, `p_tires`, `p_frame_material`, `p_fork`, 
-                        `p_handlebars`, `p_display`, `p_lighting`, `p_connectivity`, `p_fenders`, `p_rack`, 
-                        `p_kickstand`, `p_lock`, `p_accessories`, `p_warranty`, `p_torque`, 
-                        `p_max_rider_weight`, `p_water_resistance`, `p_base_price`, `p_optional_features`) 
-                        
-                    VALUES (NULL, '$reg_id', '$p_image', '$p_brand', '$p_model', '$p_year', '$p_type', '$p_frame_size', '$p_wheel_size', 
+        $file_name = $_FILES['images']['name'];
+        $tempname = $_FILES['images']['tmp_name'];
+        $folder = 'products_tb/' . $file_name;
+        
+        // Move the uploaded file to the target directory
+        if (move_uploaded_file($tempname, $folder)) {
+            // Insert file path into database
+            $sql = "INSERT INTO products_tb (id, images, p_brand, p_model, p_year, p_type, p_frame_size, p_wheel_size, 
+                        p_weight, p_motor_type, p_motor_power, p_top_speed, p_pedal_assist_levels, 
+                        p_throttle, p_battery_type, p_battery_capacity, p_range, p_charge_time, 
+                        p_gears, p_brakes, p_suspension, p_tires, p_frame_material, p_fork, 
+                        p_handlebars, p_display, p_lighting, p_connectivity, p_fenders, p_rack, 
+                        p_kickstand, p_lock, p_accessories, p_warranty, p_torque, 
+                        p_max_rider_weight, p_water_resistance, p_base_price, p_optional_features) 
+                    
+                    VALUES (NULL, '$folder', '$p_brand', '$p_model', '$p_year', '$p_type', '$p_frame_size', '$p_wheel_size', 
                         '$p_weight', '$p_motor_type', '$p_motor_power', '$p_top_speed', '$p_pedal_assist_levels', 
                         '$p_throttle', '$p_battery_type', '$p_battery_capacity', '$p_range', '$p_charge_time', 
                         '$p_gears', '$p_brakes', '$p_suspension', '$p_tires', '$p_frame_material', '$p_fork', 
@@ -110,13 +130,18 @@ if (!$conn) {
                         '$p_kickstand', '$p_lock', '$p_accessories', '$p_warranty', '$p_torque', 
                        '$p_max_rider_weight', '$p_water_resistance', '$p_base_price', '$p_optional_features')";
             $result = mysqli_query($conn, $sql);
-        }
-        if ($result) {
-            header("Location:Admin.php? msg= E-Bike Description Updated!");
+    
+            // Check if the query was successful
+            if ($result) {
+                header("Location: Admin/Dashboard.php? msg=Success!");
+            } else {
+                echo "Failed to insert into the database: " . mysqli_error($conn);
+            }
         } else {
-            echo "Failed: " . mysqli_error($conn);
+            echo "Failed to upload the image.";
         }
-    }    
+    } 
+  
 
     date_default_timezone_set('Asia/Singapore');
     function calculateTimeElapsed($upload_date_time) {

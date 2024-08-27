@@ -27,7 +27,7 @@ include "db_conn.php";
 
     // Check for admin credentials 
     if ($i_email == 'admin@gmail.com' && $i_password == 'admin1234') {
-        header("Location: Admin.php");
+        header("Location: Admin/Dashboard.php");
         exit();
     }
 
@@ -43,7 +43,7 @@ include "db_conn.php";
         if (password_verify($i_password, $row['h_password'])) {
             $_SESSION['email'] = $row['email'];
             $_SESSION['id'] = $row['id'];
-            header("Location: Home.php");
+            header("Location: User/Shop.php");
             exit();
         } else {
             header("Location: Home.php?error=Incorrect username or password");
