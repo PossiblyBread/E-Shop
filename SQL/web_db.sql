@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2024 at 09:39 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Sep 01, 2024 at 10:05 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,7 +49,9 @@ INSERT INTO `accounts` (`id`, `Serial_Num`, `last_name`, `first_name`, `email`, 
 (17, 10000001, 'waw', 'wew', 'wew@gmail.com', '12345678910', '$2y$10$ZfHOjTfmcz40JXl7lO/JEeg.a.hMBAn1.DPIAols73wn2elaiBeBW', '', '2024-08-21 13:33:25'),
 (21, 0, 'adona', 'adrian', 'adona@gmail.com', '09091212123', '$2y$10$lzRPBTZhncq/4XZrM31UJ.2eb5c4zjb8fSyXnZ6UK4uyP6ICK3ZGu', '', '2024-08-21 13:33:53'),
 (22, 0, 'bread', 'bnread', 'bread@gmail.comn', '09121231234', '$2y$10$reDP.yPur2bu5zWgATvHheRCDrtyCD/u.Nql9tOgxNRj3TAzV7Ud.', '', '2024-08-21 13:41:05'),
-(23, 0, 'man', 'boy', 'manboy@gmail.com', '123123', '$2y$10$pW/ql43GQH2qcEFdr0g2neCx/ZsPBH3kIBMlLPAJLonhOp7WlgEJi', 'user', '2024-08-21 13:55:29');
+(23, 0, 'man', 'boy', 'manboy@gmail.com', '123123', '$2y$10$pW/ql43GQH2qcEFdr0g2neCx/ZsPBH3kIBMlLPAJLonhOp7WlgEJi', 'user', '2024-08-21 13:55:29'),
+(24, 0, '', '', '', '', '', 'User', '2024-09-02 03:30:50'),
+(25, 0, '', '', '', '', '', 'User', '2024-09-02 03:31:19');
 
 -- --------------------------------------------------------
 
@@ -143,8 +145,9 @@ CREATE TABLE `tickets` (
   `id` int(255) NOT NULL,
   `Serial_Num` int(8) NOT NULL,
   `type` varchar(200) NOT NULL,
-  `description` varchar(1500) NOT NULL,
+  `description` text NOT NULL,
   `t_status` varchar(50) NOT NULL,
+  `escalation_stage` varchar(255) NOT NULL,
   `date_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -152,13 +155,15 @@ CREATE TABLE `tickets` (
 -- Dumping data for table `tickets`
 --
 
-INSERT INTO `tickets` (`id`, `Serial_Num`, `type`, `description`, `t_status`, `date_time`) VALUES
-(1, 0, 'Mech_Issue', 'bike broke', 'Pending', '0000-00-00 00:00:00'),
-(2, 0, 'Mech_Issue', '', 'Pending', '0000-00-00 00:00:00'),
-(3, 0, 'Mech_Issue', '', 'Pending', '0000-00-00 00:00:00'),
-(4, 0, 'Mech_Issue', '', 'Pending', '0000-00-00 00:00:00'),
-(5, 0, 'Assist_Req', 'bread', 'Pending', '2024-08-19 11:56:22'),
-(6, 0, 'Mech_Issue', 'cheese', 'Pending', '2024-08-19 12:21:44');
+INSERT INTO `tickets` (`id`, `Serial_Num`, `type`, `description`, `t_status`, `escalation_stage`, `date_time`) VALUES
+(1, 0, 'Mech_Issue', 'bike broke', 'Pending', '', '0000-00-00 00:00:00'),
+(2, 0, 'Mech_Issue', '', 'Pending', '', '0000-00-00 00:00:00'),
+(3, 0, 'Mech_Issue', '', 'Pending', '', '0000-00-00 00:00:00'),
+(4, 0, 'Mech_Issue', '', 'Pending', '', '0000-00-00 00:00:00'),
+(5, 0, 'Assist_Req', 'bread', 'Pending', '', '2024-08-19 11:56:22'),
+(6, 0, 'Mech_Issue', 'cheese', 'Pending', '', '2024-08-19 12:21:44'),
+(7, 123, 'Technical', 'test', 'Pending', 'P1', '2024-09-02 02:52:28'),
+(8, 123, 'Technical', 'test', 'Pending', 'P1', '2024-09-02 02:52:41');
 
 --
 -- Indexes for dumped tables
@@ -196,7 +201,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `ledger_tb`
@@ -214,7 +219,7 @@ ALTER TABLE `products_tb`
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

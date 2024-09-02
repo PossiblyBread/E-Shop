@@ -36,6 +36,8 @@ if (!$conn) {
             echo "Failed: " . mysqli_error($conn);
         }   
     }
+    
+
     if (isset($_POST['pay-update'])) {
         $user_id = $_POST['user_id'];
         $user_name = $_POST['user_name'];
@@ -62,6 +64,26 @@ if (!$conn) {
 
         if ($result) {
             header("Location:Dashboard.php? msg=User Created Successfully!");
+        } else {
+            echo "Failed: " . mysqli_error($conn);
+        }   
+    }
+    
+    if (isset($_POST['submit'])) {
+        $Serial_Num = $_POST['Serial_Num']; 
+        $type = $_POST['type'];
+        $description = $_POST['description'];
+        $t_status = "Pending";
+        $escalation_stage = "P1";
+
+        $sql = "INSERT INTO `tickets`(`id`, `Serial_Num`, `type`, `description`, `t_status`, `escalation_stage`) 
+                VALUES (NULL, '$Serial_Num', '$type', '$description', '$t_status', '$escalation_stage')";
+
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            header("Location: ../Home.php");
+            exit();
         } else {
             echo "Failed: " . mysqli_error($conn);
         }   

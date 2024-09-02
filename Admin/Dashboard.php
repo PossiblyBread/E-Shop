@@ -1,24 +1,6 @@
 <?php
 session_start();
 include "../db_conn.php";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
-    $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $phone_num = mysqli_real_escape_string($conn, $_POST['phone_num']);
-    $h_password = mysqli_real_escape_string($conn, $_POST['h_password']);
-    $role = mysqli_real_escape_string($conn, $_POST['role']);
-
-    $sql_insert = "INSERT INTO `accounts` (`id`, `last_name`, `first_name`, `email`, `phone_num`, `h_password`, `role`) 
-                    VALUES (NULL, '$last_name', '$first_name', '$email', '$phone_num', '$h_password', '$role')";
-    if (!mysqli_query($conn, $sql_insert)) {
-        die("Error inserting record: " . mysqli_error($conn));
-    }
-}
-
-$sql_select = "SELECT * FROM accounts";
-$result = mysqli_query($conn, $sql_select);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +17,7 @@ $result = mysqli_query($conn, $sql_select);
                 <li><a href="Ledger.php">Ledger</a></li>
                 <li><a href="upload_product.php">Add new Product</a></li>
                 <li><a href="order_entry.php">Create new Order</a></li>
-                <li><a href="#" data-modal="user-account-modal">User Account Data</a></li>
+                <li><a href="Account_Manager.php">User Account Data</a></li>
                 <li><a href="" data-modal="tickets-modal" data-url="itsupport.php">Tickets</a></li>
                 <li><a href="" data-modal="logout-modal">Log Out</a></li>
             </ul>
@@ -69,6 +51,9 @@ $result = mysqli_query($conn, $sql_select);
                     </tr>
                     
                     <?php
+                        // Define the roles available
+                        $roles = ['Admin', 'IT Support', 'User']; // Example roles
+
                         $sql = "SELECT * FROM `accounts`";
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -80,7 +65,21 @@ $result = mysqli_query($conn, $sql_select);
                         <td><?php echo $row["first_name"] ?></td>
                         <td><?php echo $row["email"] ?></td>
                         <td><?php echo $row["phone_num"] ?></td>
-                        <td><?php echo $row["role"] ?></td>
+                        <td>
+                            <!-- remember add something here -->
+                            <form action="" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <select name="role" onchange="this.form.submit()">
+                                    <?php
+                                        foreach ($roles as $role) {
+                                            $selected = ($role == $row["role"]) ? 'selected' : '';
+                                            echo "<option value=\"$role\" $selected>$role</option>";
+                                        }
+                                    ?>
+                                </select>
+                                <button type="submit" name="Save">Save</button>
+                            </form>
+                        </td>
                         <td><?php echo $row["date_time"] ?></td>
                     </tr>
 

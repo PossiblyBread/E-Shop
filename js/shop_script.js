@@ -90,3 +90,31 @@ if (modal) {
         }
     }
 }
+// Get the chat button and chat box elements
+const chatButton = document.querySelector('.chat-button');
+const chatBox = document.querySelector('.chat-box');
+
+// Position the chat box near the chat button
+function positionChatBox() {
+    const buttonRect = chatButton.getBoundingClientRect();
+    console.log('Button Rect:', buttonRect);
+    chatBox.style.left = `${buttonRect.left + (chatButton.offsetWidth / 2) - (chatBox.offsetWidth / 6)}px`;
+    console.log('Chat Box Style:', chatBox.style.bottom, chatBox.style.left);
+}
+
+// Function to show the chat box with an animation
+function showChatBox() {
+    chatBox.classList.add('visible');
+    setTimeout(() => {
+        chatBox.classList.remove('visible');
+    }, 60000); // Box visible for 60 seconds
+}
+
+// Position the chat box initially
+positionChatBox();
+
+// Re-position the chat box on window resize
+window.addEventListener('resize', positionChatBox);
+
+// Show the chat box when the chat button is clicked
+chatButton.addEventListener('click', showChatBox);
