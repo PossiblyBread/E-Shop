@@ -36,3 +36,8 @@ Week #9 (August 28, 2024) [wednesday]
     -products_tb
   -created new files, ledger, order entry
   -added new table in SQL database
+
+Week #10 (September 3, 2024) [tuesday]
+  -added account manager file, to manage users and change their roles (roles not yet working)
+  -added a search bar for ID and Name in account manager file for quick access
+  -made a config folder for a cleaner look
