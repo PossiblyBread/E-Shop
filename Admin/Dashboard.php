@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../db_conn.php";
+include "../config/dashboard_config.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@ include "../db_conn.php";
                 <li><a href="Ledger.php">Ledger</a></li>
                 <li><a href="upload_product.php">Add new Product</a></li>
                 <li><a href="order_entry.php">Create new Order</a></li>
-                <li><a href="Account_Manager.php">User Account Data</a></li>
+                <li><a href="#" data-modal="user-account-modal">User Account Data</a></li>
                 <li><a href="" data-modal="tickets-modal" data-url="itsupport.php">Tickets</a></li>
                 <li><a href="" data-modal="logout-modal">Log Out</a></li>
             </ul>

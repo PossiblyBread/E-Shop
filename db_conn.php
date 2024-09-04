@@ -36,7 +36,6 @@ if (!$conn) {
             echo "Failed: " . mysqli_error($conn);
         }   
     }
-    
 
     if (isset($_POST['pay-update'])) {
         $user_id = $_POST['user_id'];
@@ -68,6 +67,7 @@ if (!$conn) {
             echo "Failed: " . mysqli_error($conn);
         }   
     }
+
     
     if (isset($_POST['submit'])) {
         $Serial_Num = $_POST['Serial_Num']; 

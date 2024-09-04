@@ -23,15 +23,15 @@
         <div class="search-wrapper">
             <div class="search-container-1">
                 <input type="text" id="search-input-1" placeholder="Find Id">
-                <button id="ID_search_button">Search</button>
+                <button id="search-button-1">Search</button>
             </div>
             <div class="search-container-2">
                 <input type="text" id="search-input-2" placeholder="Find Name">
-                <button id="Name_search_button">Search</button>
+                <button id="search-button-2">Search</button>
             </div>
             <div class="checkbox-container">
-                <input type="checkbox" id="increment-checkbox">
-                <label for="increment-checkbox">Enable Increment</label>
+                <input type="checkbox" id="my-checkbox">
+                <label for="my-checkbox">Check this box</label>
             </div>
         </div>
         <table class="acc_table">

@@ -26,7 +26,7 @@ include "../config/shop_config.php";
         <a href="#">Find us</a>
         <a href="Profile.php">Profile</a>
         <a href="#">Feedback</a>
-        <a href="../Settings.php">Settings</a>
+        <a href="Settings.php">Settings</a>
         <a href="../logout.php" id="logout-button">Log Out</a>
     </div>
 
