@@ -16,7 +16,7 @@ session_start();
             <h2>Submit a Ticket</h2>
             <!-- <form action="https://api.web3forms.com/submit" method="post"> -->
             <form action="" method="post">
-                <!-- <input type="hidden" name="access_key" value="2bde6572-687f-47ce-aa2d-a6c4671ef752"> -->
+                <!-- <input type="hidden" name="access_key" value=""> -->
 
                 <label for="first_name">First Name</label>
                 <input type="text" id="first_name" name="first_name" required>
@@ -91,7 +91,7 @@ session_start();
         setResult("Sending....");
         const formData = new FormData(event.target);
     
-        formData.append("access_key", "2bde6572-687f-47ce-aa2d-a6c4671ef752E");
+        formData.append("access_key", "");
     
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
