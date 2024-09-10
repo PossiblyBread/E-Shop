@@ -31,62 +31,35 @@ if (!$conn) {
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
-            header("Location:Dashboard.php? msg=User Created Successfully!");
+            header("Location:Admin.php? msg=User Created Successfully!");
         } else {
             echo "Failed: " . mysqli_error($conn);
         }   
     }
-
-    if (isset($_POST['pay-update'])) {
-        $user_id = $_POST['user_id'];
-        $user_name = $_POST['user_name'];
-        $product_id = $_POST['product_id'];
-        $product_name = $_POST['product_name'];
-        $product_price = $_POST['product_price'];
-        $payment_type = $_POST['payment_type'];
-        $due_date = $_POST['due_date'];
-        $due_to_be_paid = $_POST['due_to_be_paid'];
-        $due_paid = $_POST['due_paid'];
-        $due_missed = $_POST['due_missed'];
-        $due_paid_date = $_POST['due_paid_date'];
-        $dues_remaining = $_POST['dues_remaining'];
-        $due_status = $_POST['due_status'];
-
-        $sql = "INSERT INTO `ledger_tb` (`id`, `user_id`, `user_name`, `product_id`, `product_name`, 
-                        `product_price`, `payment_type`, `due_date`, `due_to_be_paid`, `due_paid`, 
-                        `due_missed`, `due_paid_date`, `dues_remaining`, `due_status`) 
-                VALUES (NULL, '$user_id', '$user_name', '$product_id', '$product_name', 
-                        '$product_price', '$payment_type', '$due_date', '$due_to_be_paid', 
-                        '$due_paid', '$due_missed', '$due_paid_date', '$dues_remaining', '$due_status')";
-
-        $result = mysqli_query($conn, $sql);
-
-        if ($result) {
-            header("Location:Dashboard.php? msg=User Created Successfully!");
-        } else {
-            echo "Failed: " . mysqli_error($conn);
-        }   
-    }
-
     
-    if (isset($_POST['submit'])) {
-        $Serial_Num = $_POST['Serial_Num']; 
+    if (isset($_POST['submit-ticket'])) {
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $phone_num = $_POST['phone_num'];
+        $serial_num = $_POST['serial_num'] = 100;
         $type = $_POST['type'];
         $description = $_POST['description'];
-        $t_status = "Pending";
-        $escalation_stage = "P1";
-
-        $sql = "INSERT INTO `tickets`(`id`, `Serial_Num`, `type`, `description`, `t_status`, `escalation_stage`) 
-                VALUES (NULL, '$Serial_Num', '$type', '$description', '$t_status', '$escalation_stage')";
-
+        $t_status = $_POST['t_status'] ="Pending";
+        $escalation_stage = $_POST['escalation_stage'] = "P1";
+    
+        $sql = "INSERT INTO `tickets`(`id`, `first_name`, `last_name`, `phone_num`, `serial_num`,
+                            `type`, `description`, `t_status`, `escalation_stage`) 
+                    VALUES (NULL, '$first_name', '$last_name', '$phone_num', '$serial_num', 
+                            '$type', '$description', '$t_status', '$escalation_stage')";
+    
         $result = mysqli_query($conn, $sql);
-
+    
         if ($result) {
-            header("Location: ../Home.php");
+            header("Location: request-ticket.php?");
             exit();
         } else {
             echo "Failed: " . mysqli_error($conn);
-        }   
+        }
     }
 
     if (isset($_FILES['images'])) {

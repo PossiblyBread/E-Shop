@@ -1,4 +1,3 @@
-// Carousel functionality
 let slideIndex = 0;
 let intervalId;
 
@@ -35,7 +34,6 @@ function autoSlide() {
 intervalId = setInterval(autoSlide, intervalTime);
 showSlide(slideIndex);
 
-// Side panel functionality
 function openNav() {
     document.getElementById("right-side-panel").style.width = "300px";
 }
@@ -43,8 +41,6 @@ function openNav() {
 function closeNav() {
     document.getElementById("right-side-panel").style.width = "0";
 }
-
-// Details popup functionality
 document.getElementById('details-button').addEventListener('click', function() {
     var popup = document.getElementById('details-popup');
     popup.style.display = 'block';
@@ -57,64 +53,32 @@ document.getElementById('close-popup').addEventListener('click', function() {
     var popup = document.getElementById('details-popup');
     popup.style.transform = 'translateY(-100%)';
     setTimeout(() => {
-        popup.style.display = 'none';
+    popup.style.display = 'none';
     }, 300); // match the transition duration
 });
-
-// Modal functionality
+// Get the modal
 var modal = document.getElementById("myModal");
 
-// Check that modal and buttons exist
-if (modal) {
-    var btn = document.getElementById("login-button");
-    var span = document.querySelector("#myModal .close");
+// Get the button that opens the modal
+var btn = document.getElementById("login-button");
 
-    // Ensure button exists
-    if (btn) {
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-    }
+var btn = document.getElementById("logout-button");
 
-    // Ensure close button exists
-    if (span) {
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-    }
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-    // Close modal if clicked outside of it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
-// Get the chat button and chat box elements
-const chatButton = document.querySelector('.chat-button');
-const chatBox = document.querySelector('.chat-box');
-
-// Position the chat box near the chat button
-function positionChatBox() {
-    const buttonRect = chatButton.getBoundingClientRect();
-    console.log('Button Rect:', buttonRect);
-    chatBox.style.left = `${buttonRect.left + (chatButton.offsetWidth / 2) - (chatBox.offsetWidth / 6)}px`;
-    console.log('Chat Box Style:', chatBox.style.bottom, chatBox.style.left);
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
 }
 
-// Function to show the chat box with an animation
-function showChatBox() {
-    chatBox.classList.add('visible');
-    setTimeout(() => {
-        chatBox.classList.remove('visible');
-    }, 60000); // Box visible for 60 seconds
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
 }
 
-// Position the chat box initially
-positionChatBox();
-
-// Re-position the chat box on window resize
-window.addEventListener('resize', positionChatBox);
-
-// Show the chat box when the chat button is clicked
-chatButton.addEventListener('click', showChatBox);
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}   

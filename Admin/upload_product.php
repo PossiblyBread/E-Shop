@@ -4,19 +4,7 @@
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-
-    </head>
     <body>
-        <nav class="right-navbar">
-            <ul>
-                <li><a href="Dashboard.php">Dashboard</a></li>
-                <li><a href="Ledger.php">Ledger</a></li>
-                <li><a href="upload_product.php">Add new Prouct</a></li>
-                <li><a href="order_entry.php">Create new Order</a></li>
-                <li><a href="" data-modal="logout-modal">Log Out</a></li>
-            </ul>
-        </nav>
         <!-- VVV product description VVV -->
         <form action="../db_conn.php" method="post" class="product-form" id="productForm" enctype="multipart/form-data">
             <!-- for image -->
@@ -240,40 +228,6 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         max-width: 600px; /* Set max width to make page smaller */
         margin: auto; /* Center the form */
-    }
-    
-    .right-navbar {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 250px;
-        background-color: #333;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-    }
-
-    .right-navbar ul {
-        list-style-type: none;
-        padding: 0;
-        margin-top: 50px;
-        width: 100%;
-    }
-
-    .right-navbar a {
-        display: block;
-        color: #fff;
-        text-decoration: none;
-        padding: 15px;
-        transition: background-color 0.3s ease;
-    }
-
-    .right-navbar a:hover {
-        background-color: #555;
     }
 
     h4 {

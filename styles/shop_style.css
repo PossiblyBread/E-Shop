@@ -133,40 +133,19 @@ body {
 .left-nav h2 {
     margin: 0;
     padding: 1rem;
-    background-color: #d8db7a;
-}
-.chat-button {
-    width: 70px; 
-    height: 70px;
-    background-color: #d58c8c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-weight: bold;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    cursor: pointer;
+    background-color: #e3e67d;
 }
 
-.chat-box {
+.filler {
     position: fixed;
-    bottom:  0px; /* Distance from the bottom of the viewport */
-    left: 20px; /* Distance from the left side of the viewport */
-    width: 300px;
-    height: 300px;
-    background-color: rgb(186, 186, 216);
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    pointer-events: none;
+    bottom: 0;
+    left: 0;
+    margin-left: 4rem;
 }
 
-.chat-box.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+.filler img {
+    width: 25vh;
+    height: auto;
 }
 
 /* content area */
@@ -240,6 +219,10 @@ body {
         height: 10vh;
     }
 
+    .header-nav h2 {
+        padding: 0.3rem;
+    }
+
     .left-nav {
         padding: 0.5rem;
         gap: 0.5rem;
@@ -258,9 +241,11 @@ body {
     }
 
     .prev, .next {
-        padding: 0.3rem;
+        padding: 0.5rem;
     }
+}
 
+@media (max-width: 300px) {
     .header-nav {
         flex-direction: column;
         align-items: center;
@@ -269,8 +254,11 @@ body {
     .slides {
         gap: 0.5rem;
     }
-}
 
+    .prev, .next {
+        padding: 0.3rem;
+    }
+}
 /* description */
 .Product-Description {
     height: 40%;
@@ -282,7 +270,6 @@ body {
     overflow: hidden;
     transition: background-color 0.3s, transform 0.3s;
 }
-
 .Details-Button {
     align-items: center;
     padding: 0.8rem;
@@ -294,7 +281,6 @@ body {
     position: absolute;
     border-radius: 10px;
 }
-
 .product-description h2 {
     margin: 0 0 1rem;
 }
@@ -348,7 +334,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.popup .close {
+.close {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -383,6 +369,7 @@ body {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
@@ -399,15 +386,15 @@ body {
 }
 
 /* The Close Button */
-.modal .close {
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.modal .close:hover,
-.modal .close:focus {
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
