@@ -41,3 +41,8 @@ Week #10 (September 3, 2024) [tuesday]
   -added account manager file, to manage users and change their roles (roles not yet working)
   -added a search bar for ID and Name in account manager file for quick access
   -made a config folder for a cleaner look
+
+
+Week #11 (September 9, 2024) [Wednesday]
+  -added an api (gmail)
+  -added more columns in tickets tb
