@@ -43,6 +43,8 @@ Week #10 (September 3, 2024) [tuesday]
   -made a config folder for a cleaner look
 
 
-Week #11 (September 9, 2024) [Wednesday]
-  -added an api (gmail)
+Week #11 (September 11, 2024) [Wednesday]
+  -added an api (gmail) 
   -added more columns in tickets tb
+         (September 14, 2024) [Saturday]
+  -made the api work properly now, sends both the data to gmail and to the database
