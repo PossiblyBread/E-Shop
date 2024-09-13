@@ -48,3 +48,4 @@ Week #11 (September 11, 2024) [Wednesday]
   -added more columns in tickets tb
          (September 14, 2024) [Saturday]
   -made the api work properly now, sends both the data to gmail and to the database
+  -fixed github due to bugs and incomplete code replacing the fixed ones
