@@ -16,7 +16,8 @@ include "../config/shop_config.php";
     <div class="shop-name-logo">
         <h2>Shop Name and Logo</h2>
     </div>
-    <div class="Name-tag"> Guest </div>
+    <div class="Name-tag"><?php echo isset($_SESSION['first_name']) ? $_SESSION['first_name'] : 'Guest'; ?></div>
+
     <button class="menu-button" onclick="openNav()">☰ Menu</button>
     
     <div id="right-side-panel" class="side-panel">
