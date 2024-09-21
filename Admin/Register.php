@@ -5,40 +5,36 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="registration-form">
-            <h3> Registration Form</h3>
-            <form action="" method="post">
-                <div>
-                    <label class="registration-label">Last Name:</label>
-                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>            
-                </div>
-                <div>
-                    <label class="registration-label">First Name:</label>
-                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required>            
-                </div>
-                <div>
-                    <label class="registration-label">Email:</label>
-                    <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>            
-                </div>  
-                <div>
-                    <label class="registration-label">Phone Number:</label>
-                    <input type="text" class="form-control" name="phone_num" id="phone_num" placeholder="Phone Number" required>            
-                </div>
-                <div>
-                    <label class="registration-label">Password:</label>
-                    <input type="text" class="form-control" name="a_password" id="a_password" placeholder="Password" required>            
-                </div>
-                
-                
-                <div>
-                    <!-- sends you to shop -->
-                    <button type="Submit" class="btn btn-success" name="Submit">Register</button> 
-                    <!-- sends you to home -->
-                    <button class="cancel-button" onclick="window.history.back();">Cancel</button>
-                </div>
-            </form>
-        </div>
-
+    <div class="registration-form">
+        <h3>Registration Form</h3>
+        <form action="register.php" method="post">
+            <div>
+                <label class="registration-label">Last Name:</label>
+                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>            
+            </div>
+            <div>
+                <label class="registration-label">First Name:</label>
+                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required>            
+            </div>
+            <div>
+                <label class="registration-label">Email:</label>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>            
+            </div>  
+            <div>
+                <label class="registration-label">Phone Number:</label>
+                <input type="text" class="form-control" name="phone_num" id="phone_num" placeholder="Phone Number" required>            
+            </div>
+            <div>
+                <label class="registration-label">Password:</label>
+                <input type="password" class="form-control" name="a_password" id="a_password" placeholder="Password"  required>            
+            </div>
+                    
+            <div>
+                <button type="submit" class="btn btn-success" name="Submit">Register</button> 
+                <button type="button" class="cancel-button" onclick="window.location.href='Dashboard.php';">Cancel</button>
+            </div>
+        </form>
+    </div>
     </body>
 </html>
 <style>
