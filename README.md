@@ -49,3 +49,10 @@ Week #11 (September 11, 2024) [Wednesday]
          (September 14, 2024) [Saturday]
   -made the api work properly now, sends both the data to gmail and to the database
   -fixed github due to bugs and incomplete code replacing the fixed ones
+
+Week #12
+Week #13 (September 23, 2024)
+  -Used a Website Template
+Week #14 
+Week #15 (October 1, 2024)
+  -developing a new UI by my design
