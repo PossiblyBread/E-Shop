@@ -9,11 +9,14 @@
     </head>
     <body>
         <nav class="right-navbar">
-            <ul>
+        <ul>
                 <li><a href="Dashboard.php">Dashboard</a></li>
+                <li><a href="admin_view.php" data-modal="home-modal">Home</a></li>
                 <li><a href="Ledger.php">Ledger</a></li>
-                <li><a href="upload_product.php">Add new Prouct</a></li>
+                <li><a href="upload_product.php">Add new Product</a></li>
                 <li><a href="order_entry.php">Create new Order</a></li>
+                <li><a href="Account_Manager.php">User Account Data</a></li>
+                <li><a href="" data-modal="tickets-modal" data-url="itsupport.php">Tickets</a></li>
                 <li><a href="" data-modal="logout-modal">Log Out</a></li>
             </ul>
         </nav>

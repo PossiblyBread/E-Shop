@@ -9,12 +9,12 @@
         <h3>Registration Form</h3>
         <form action="register.php" method="post">
             <div>
-                <label class="registration-label">Last Name:</label>
-                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>            
-            </div>
-            <div>
                 <label class="registration-label">First Name:</label>
                 <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required>            
+            </div>
+            <div>
+                <label class="registration-label">Last Name:</label>
+                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>            
             </div>
             <div>
                 <label class="registration-label">Email:</label>
