@@ -56,3 +56,5 @@ Week #13 (September 23, 2024)
 Week #14 
 Week #15 (October 1, 2024)
   -developing a new UI by my design
+         (October 2, 2024)
+  -fixing the php function of the new UI in another repository
